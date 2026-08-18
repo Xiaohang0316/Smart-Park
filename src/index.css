@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 深色科技感主题基础 */
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #060a14;
+  color: #e2e8f0;
+  font-family: 'DIN Alternate', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* 科技感滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.45);
+}
+
+/* 发光文字 */
+.glow-text {
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+}
+
+/* 通用面板 */
+.panel {
+  @apply rounded-lg border border-line bg-panel/85 shadow-panel backdrop-blur-md;
+}
+
+/* 3D 场景内楼宇名称标签 */
+.bld-label {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  color: #cfe8ff;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.bld-label .f {
+  display: block;
+  font-size: 11px;
+  color: #7dd3fc;
+  opacity: 0.85;
+}
+
+/* 3D 场景内分区标签 */
+.zone-label {
+  font-size: 11px;
+  color: #67e8f9;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(34, 211, 238, 0.7);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 新告警入场动画 */
+@keyframes alert-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+    background: rgba(239, 68, 68, 0.25);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    background: transparent;
+  }
+}
+.alert-in {
+  animation: alert-in 0.5s ease-out;
+}
+
+/* 反向寻车路径流动虚线 */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+.path-anim {
+  animation: dash-flow 0.8s linear infinite;
+}
+
+/* 高亮闪烁 */
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.2s ease-in-out infinite;
+}
